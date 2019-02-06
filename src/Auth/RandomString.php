@@ -9,6 +9,6 @@ class RandomString {
      */
     public function get()
     {
-        return str_shuffle('1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+        return rtrim(base64_encode(bin2hex(openssl_random_pseudo_bytes(32))), '==');
     }
 }
